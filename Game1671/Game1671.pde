@@ -5,10 +5,14 @@ Environment env = new Environment();
 
 void setup() {
   Robot_Controls controls = new Robot_Controls();
-  size(1920, 1080);
+  
+  size(192, 108);
   controls.control = ControlIO.getInstance(this);
 }
 
 void draw() {
   env.drawEnvironment();
+  
+  Robot_Controls controls = new Robot_Controls();
+  controls.useController();
 }
