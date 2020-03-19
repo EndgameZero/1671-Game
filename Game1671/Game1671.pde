@@ -1,5 +1,6 @@
 /* Credits to:
     Bot 1 (Antonio Avila)
+    Bot 1.5 (Kavan Singh)
     Bot 2 (Boone Poulsen)
     God 1(Jon Case)
     God 2 (Camden Kirk)
