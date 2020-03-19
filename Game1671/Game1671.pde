@@ -5,7 +5,8 @@
 Environment env = new Environment();
 
 void setup() {
-
+  size(2537, 1305);
+  env.envSetup();
 }
 
 void draw() {
