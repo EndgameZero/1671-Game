@@ -3,11 +3,16 @@
 
 Environment env = new Environment();
 
+//The main initializer for a controller
+ControlIO control;
+// Sets up a Var for the actual controller
+ControlDevice device;
+
 void setup() {
-  Robot_Controls controls = new Robot_Controls();
-  
   size(192, 108);
-  controls.control = ControlIO.getInstance(this);
+  
+  control = ControlIO.getInstance(this);
+  device = control.getMatchedDevice("controllerConfig");
 }
 
 void draw() {
