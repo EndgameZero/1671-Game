@@ -5,10 +5,9 @@
 Environment env = new Environment();
 
 void setup() {
-  size(2537, 1305);
-  env.envSetup();
+  size(1920, 1080);
 }
 
 void draw() {
-  env.drawEnvironment();
+  env.drawField();
 }
