@@ -4,8 +4,9 @@
 Environment env = new Environment();
 
 void setup() {
+  Robot_Controls controls = new Robot_Controls();
   size(1920, 1080);
-  = ControlIO.getInstance(this);
+  controls.control = ControlIO.getInstance(this);
 }
 
 void draw() {
