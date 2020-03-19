@@ -1,21 +1,25 @@
+
 public class Environment {  
   
-  PImage fieldImage;
+  private int feet = 30;
   
   public Environment(){
-    
+  
   }
   
   public void drawEnvironment() {
-    background(fieldImage);
+
   }  
   
   public void envSetup(){
-    //fieldImage = loadImage("field.png");
-    //background(fieldImage);
+    
   }
   
   public void drawField(){
+    
+  }
+  
+  public void drawTrenches(){
   }
   
   
