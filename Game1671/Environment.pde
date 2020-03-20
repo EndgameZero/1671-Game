@@ -3,42 +3,54 @@ public class Environment {
   
   private float feet = 30.0;//px/ft
   private float offset = 50;//px
-  private PVector topLeft = new PVector(offset + 2.5*feet, offset);
-  private PVector topRight = new PVector(topLeft.x + 47.4735*feet, topLeft.y);
-  private PVector topMidLeft = new PVector(topLeft.x - 2.5*feet, topLeft.y + 5.83*feet);
-  private PVector bottomMidLeft = new PVector(topMidLeft.x, topMidLeft.y + 15.16*feet);
-  private PVector bottomLeft = new PVector(bottomMidLeft.x + 2.5*feet, bottomMidLeft.y + 5.83*feet);
-  private PVector bottomRight = new PVector(bottomLeft.x + 47.4375*feet, bottomLeft.y);
-  private PVector bottomMidRight = new PVector(bottomRight.x + 2.5*feet, bottomRight.y - 5.83*feet);
-  private PVector topMidRight = new PVector(bottomMidRight.x, bottomMidRight.y - 15.16*feet);
   
+  public PVector[] fieldVertices;
   
   public Environment(){
-  
+    fieldVertices = new PVector[8];
   }
   
-  public void drawEnvironment() {
-
-  }  
+  public void setupthis(){
+    fieldVertices [0] = new PVector(offset + 3*feet, offset); //top left
+    fieldVertices [1] = new PVector(fieldVertices[0].x - 2.5*feet, fieldVertices[0].y + 6*feet); //topmidleft
+    fieldVertices [2] = new PVector(fieldVertices[1].x, fieldVertices[1].y + 15*feet);//bottommidleft
+    fieldVertices [3] = new PVector(fieldVertices[2].x + 2.5*feet, fieldVertices[2].y +6*feet);//bottomleft
+    fieldVertices [4] = new PVector(fieldVertices[3].x + 47*feet, fieldVertices[3].y);//bottomright
+    fieldVertices [5] = new PVector(fieldVertices[4].x + 2.5*feet, fieldVertices[4].y - 6*feet);//bottommidright
+    fieldVertices [6] = new PVector(fieldVertices[5].x, fieldVertices[5].y - 15*feet);//topmidright
+    fieldVertices [7] = new PVector(fieldVertices[6].x - 2.5*feet, fieldVertices[6].y - 6*feet); //top right
+  }
+ 
+ 
+ public boolean isInField(float x, float y){
+   boolean isColliding = false;
+   
+   int nextVertice = 0;
+   for(int currentVertice = 0; currentVertice < fieldVertices.length; currentVertice++){
+     nextVertice = currentVertice+1;
+     if(nextVertice == fieldVertices.length){
+       nextVertice = 0;
+     }
+     
+     PVector current = fieldVertices[currentVertice];
+     PVector next = fieldVertices[nextVertice];
+     
+     if (((current.y >= y && next.y < y) || (current.y < y && next.y >= y)) && (x < (next.x-current.x)*(y-current.y) / (next.y-current.y)+current.x)) {
+            isColliding = !isColliding;
+    }
+   }
+   return isColliding;
+ }
   
   public void drawField(){
-    //topline
-    line(topLeft.x, topLeft.y, topRight.x, topRight.y);
-    //right top slant
-    line(topLeft.x, topLeft.y, topMidLeft.x, topMidLeft.y);
-    //left straight
-    line(topMidLeft.x, topMidLeft.y, bottomMidLeft.x, bottomMidLeft.y);
-    //left bottom slant
-    line(bottomMidLeft.x, bottomMidLeft.y, bottomLeft.x, bottomLeft.y);
-    //bottomline
-    line(bottomLeft.x, bottomLeft.y, bottomRight.x, bottomRight.y);
-    //bottom right slant
-    line(bottomRight.x, bottomRight.y, bottomMidRight.x, bottomMidRight.y);
-    //right straight
-    line(bottomMidRight.x, bottomMidRight.y, topMidRight.x, topMidRight.y);
-    //top right slant
-    line(topMidRight.x, topMidRight.y, topRight.x, topRight.y);
-    
+    line(fieldVertices[0].x, fieldVertices[0].y, fieldVertices[1].x, fieldVertices[1].y);
+    line(fieldVertices[1].x, fieldVertices[1].y, fieldVertices[2].x, fieldVertices[2].y);
+    line(fieldVertices[2].x, fieldVertices[2].y, fieldVertices[3].x, fieldVertices[3].y);
+    line(fieldVertices[3].x, fieldVertices[3].y, fieldVertices[4].x, fieldVertices[4].y);
+    line(fieldVertices[4].x, fieldVertices[4].y, fieldVertices[5].x, fieldVertices[5].y);
+    line(fieldVertices[5].x, fieldVertices[5].y, fieldVertices[6].x, fieldVertices[6].y);
+    line(fieldVertices[6].x, fieldVertices[6].y, fieldVertices[7].x, fieldVertices[7].y);
+    line(fieldVertices[7].x, fieldVertices[7].y, fieldVertices[0].x, fieldVertices[0].y);
   }
   
 }

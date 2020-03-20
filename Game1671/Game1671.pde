@@ -3,11 +3,19 @@
 
 
 Environment env = new Environment();
+  
+
 
 void setup() {
   size(1920, 1080);
+  env.setupthis();
 }
 
 void draw() {
+  background(#CCD828);
   env.drawField();
+  
+  boolean isHit = env.isInField(mouseX, mouseY);
+  if (isHit){background(#FFFFFF); env.drawField();};
+  
 }
