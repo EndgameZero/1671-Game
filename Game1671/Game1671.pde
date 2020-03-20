@@ -3,7 +3,6 @@
 
 Environment env = new Environment();
 Robot_Controls controls = new Robot_Controls();
-Timer timer = new Timer();
 
 //The main initializer for a controller
 ControlIO control;
@@ -23,13 +22,12 @@ void setup() {
   
   px = 500;
   py = 500;
-  timer.start();
 }
 
 void draw() {
   
   background(#DDDDDD);
-  env.drawField();
+  env.drawEnvironment();
   if(!env.isInField(px, py)){
     background(255, 0,0);
     env.drawField();
@@ -45,6 +43,5 @@ void draw() {
   LX = controls.getLX();
   LY = controls.getLY();
   
-  //System.out.println(timer.getHours()+":"+timer.getMinutes()+":"+timer.getSeconds());
   
 }

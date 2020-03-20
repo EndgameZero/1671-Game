@@ -5,6 +5,7 @@ public class Environment {
   private float offset = 50;//px
   
   private PVector[] fieldVertices;
+  private Timer timer = new Timer();
   
   public Environment(){
     fieldVertices = new PVector[8];
@@ -19,6 +20,15 @@ public class Environment {
     fieldVertices [5] = new PVector(fieldVertices[4].x + 2.5*feet, fieldVertices[4].y - 6*feet);//bottommidright
     fieldVertices [6] = new PVector(fieldVertices[5].x, fieldVertices[5].y - 15*feet);//topmidright
     fieldVertices [7] = new PVector(fieldVertices[6].x - 2.5*feet, fieldVertices[6].y - 6*feet); //top right
+    
+    timer.start();
+  }
+  
+  public void drawEnvironment(){
+    drawField();
+    textSize(32);
+    text(timer.getHours() + ":" + timer.getMinutes() + ":" + timer.getSeconds(), fieldVertices[7].x + 100, fieldVertices[7].y + 20);
+    fill(0,0,0);
   }
  
  
@@ -55,7 +65,7 @@ public class Environment {
    return point;
  }
   
-  public void drawField(){
+  private void drawField(){
     //perimeter lines
     stroke(0, 0, 0);
     strokeWeight(6);
