@@ -4,7 +4,7 @@ public class Environment {
   private float feet = 30.0;//px/ft
   private float offset = 50;//px
   
-  public PVector[] fieldVertices;
+  private PVector[] fieldVertices;
   
   public Environment(){
     fieldVertices = new PVector[8];
@@ -43,6 +43,9 @@ public class Environment {
  }
   
   public void drawField(){
+    //perimeter lines
+    stroke(0, 0, 0);
+    strokeWeight(6);
     line(fieldVertices[0].x, fieldVertices[0].y, fieldVertices[1].x, fieldVertices[1].y);
     line(fieldVertices[1].x, fieldVertices[1].y, fieldVertices[2].x, fieldVertices[2].y);
     line(fieldVertices[2].x, fieldVertices[2].y, fieldVertices[3].x, fieldVertices[3].y);
@@ -51,6 +54,31 @@ public class Environment {
     line(fieldVertices[5].x, fieldVertices[5].y, fieldVertices[6].x, fieldVertices[6].y);
     line(fieldVertices[6].x, fieldVertices[6].y, fieldVertices[7].x, fieldVertices[7].y);
     line(fieldVertices[7].x, fieldVertices[7].y, fieldVertices[0].x, fieldVertices[0].y);
+    
+    //auto lines
+    stroke(0, 0, 0);
+    strokeWeight(.16*feet);
+    line(fieldVertices[1].x + 10*feet, fieldVertices[0].y, fieldVertices[1].x + 10*feet, fieldVertices[3].y);
+    line(fieldVertices[6].x - 10*feet, fieldVertices[0].y, fieldVertices[6].x - 10*feet, fieldVertices[3].y);
+    
+    //trench lines 17 4.5
+    stroke(255, 0, 0);
+    line(fieldVertices[1].x + 17*feet, fieldVertices[0].y, fieldVertices[1].x + 17*feet, fieldVertices[0].y + 4.5*feet);
+    line(fieldVertices[1].x + 17*feet, fieldVertices[0].y + 4.5*feet, fieldVertices[6].x - 17*feet, fieldVertices[0].y + 4.5*feet);
+    line(fieldVertices[6].x - 17*feet, fieldVertices[0].y + 4.5*feet, fieldVertices[6].x - 17*feet, fieldVertices[0].y);
+    stroke(0, 0, 255);
+    line(fieldVertices[1].x + 17*feet, fieldVertices[3].y, fieldVertices[1].x + 17*feet, fieldVertices[3].y - 4.5*feet);
+    line(fieldVertices[1].x + 17*feet, fieldVertices[3].y - 4.5*feet, fieldVertices[6].x - 17*feet, fieldVertices[3].y - 4.5*feet);
+    line(fieldVertices[6].x - 17*feet, fieldVertices[3].y - 4.5*feet, fieldVertices[6].x - 17*feet, fieldVertices[3].y);
+    
+    //reset color
+    stroke(0,0,0);
+    strokeWeight(1);
   }
+  
+  
+  
+  
+  
   
 }

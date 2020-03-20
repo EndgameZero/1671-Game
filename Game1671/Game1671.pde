@@ -14,9 +14,6 @@ float LY;
 float px;
 float py;
 
-float sped = 5;
-float spedY = 10;
-
 void setup() {
   size(1920, 1080);
   control = ControlIO.getInstance(this);
@@ -29,17 +26,14 @@ void setup() {
 
 void draw() {
   
-  background(#B7DD45);
+  background(#DDDDDD);
   env.drawField();
   if(!env.isInField(px, py)){
-    background(#EB3092);
+    background(255, 0,0);
     env.drawField();
-    
-    LX *= -1;
-    LY*= -1;
   }
   
-  rect(px, py, 90, 90);
+  rect(px, py, 45, 45);
   
   px+= LX * 4;
   py+= LY * 4;
@@ -47,5 +41,5 @@ void draw() {
   
   LX = controls.getLX();
   LY = controls.getLY();
-
+  
 }
