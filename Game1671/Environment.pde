@@ -22,6 +22,7 @@ public class Environment {
   }
  
  
+ 
  public boolean isInField(float x, float y){
    boolean isColliding = false;
    
@@ -40,6 +41,18 @@ public class Environment {
     }
    }
    return isColliding;
+ }
+ 
+ public PVector putPointOnLeftAutoLine(PVector point, float feetFromTop){
+   point.x = fieldVertices[1].x + 10 * feet;
+   point.y = fieldVertices [0].y + feetFromTop*feet;
+   return point;
+ }
+ 
+ public PVector putPointOnRightAutoLine(PVector point, float feetFromTop){
+   point.x = fieldVertices[6].x - 10 * feet;
+   point.y = fieldVertices [0].y + feetFromTop*feet;
+   return point;
  }
   
   public void drawField(){
