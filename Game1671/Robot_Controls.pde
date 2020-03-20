@@ -6,8 +6,8 @@ import org.gamecontrolplus.gui.*;
 
 public class Robot_Controls {   
     public void useController() {
-      System.out.println(device.getSlider("LEFTX").getValue());
-      //System.out.println(device.getSlider("LEFTY").getValue());
+      System.out.println(device.getSlider("LHorizontal").getValue());
+      System.out.println(device.getSlider("LVertical1").getValue());
     }
   
 }  
