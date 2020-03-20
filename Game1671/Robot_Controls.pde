@@ -10,6 +10,8 @@ public class Robot_Controls {
     public void useController() {
       x = device.getSlider("LHorizontal").getValue();
       y = device.getSlider("LVertical1").getValue();
+      System.out.println(device.getButton("ButtonA").getValue());
+      System.out.println(device.getHat("Hat").getValue());
     }
   
 }  
