@@ -2,23 +2,50 @@
 //hi
 
 Environment env = new Environment();
-//Robot_Controls controls = new Robot_Controls();
+Robot_Controls controls = new Robot_Controls();
 
+//The main initializer for a controller
+ControlIO control;
+// Sets up a Var for the actual controller
+ControlDevice device;
+float LX;
+float LY;
 
-//ControlIO control;
+float px;
+float py;
 
-//ControlDevice device;
+float sped = 5;
+float spedY = 10;
 
 void setup() {
   size(1920, 1080);
-  env.setupthis();
+  control = ControlIO.getInstance(this);
+  device = control.getMatchedDevice("controllerConfig");
+  env.setupEnvironment();
   
-  //control = ControlIO.getInstance(this);
-  //device = control.getMatchedDevice("controllerConfig");
+  px = 500;
+  py = 500;
 }
 
 void draw() {
-  background(#CCD828);
+  
+  background(#B7DD45);
   env.drawField();
-  System.out.println(env.isInField(mouseX, mouseY));
+  if(!env.isInField(px, py)){
+    background(#EB3092);
+    env.drawField();
+    
+    LX *= -1;
+    LY*= -1;
+  }
+  
+  rect(px, py, 90, 90);
+  
+  px+= LX * 4;
+  py+= LY * 4;
+  
+  
+  LX = controls.getLX();
+  LY = controls.getLY();
+
 }
