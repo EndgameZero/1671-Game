@@ -10,7 +10,7 @@ public class Environment {
     fieldVertices = new PVector[8];
   }
   
-  public void setupthis(){
+  public void setupEnvironment(){
     fieldVertices [0] = new PVector(offset + 3*feet, offset); //top left
     fieldVertices [1] = new PVector(fieldVertices[0].x - 2.5*feet, fieldVertices[0].y + 6*feet); //topmidleft
     fieldVertices [2] = new PVector(fieldVertices[1].x, fieldVertices[1].y + 15*feet);//bottommidleft
