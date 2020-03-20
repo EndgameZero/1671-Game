@@ -8,16 +8,22 @@ Robot_Controls controls = new Robot_Controls();
 ControlIO control;
 // Sets up a Var for the actual controller
 ControlDevice device;
-
+float LX;
+float LY;
 void setup() {
   size(192, 108);
-  
   control = ControlIO.getInstance(this);
   device = control.getMatchedDevice("controllerConfig");
 }
 
 void draw() {
   env.drawEnvironment();
+<<<<<<< Updated upstream
   
   controls.useController();
+=======
+  Robot_Controls controls = new Robot_Controls();
+  LX = controls.getLX();
+  LY = controls.getLY();
+>>>>>>> Stashed changes
 }
