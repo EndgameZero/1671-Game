@@ -5,9 +5,11 @@ import org.gamecontrolplus.*;
 import org.gamecontrolplus.gui.*;
 
 public class Robot_Controls {   
+  float x;
+  float y;
     public void useController() {
-      System.out.println(device.getSlider("LHorizontal").getValue());
-      System.out.println(device.getSlider("LVertical1").getValue());
+      x = device.getSlider("LHorizontal").getValue();
+      y = device.getSlider("LVertical1").getValue();
     }
   
 }  

@@ -2,6 +2,7 @@
 //hi
 
 Environment env = new Environment();
+Robot_Controls controls = new Robot_Controls();
 
 //The main initializer for a controller
 ControlIO control;
@@ -18,6 +19,5 @@ void setup() {
 void draw() {
   env.drawEnvironment();
   
-  Robot_Controls controls = new Robot_Controls();
   controls.useController();
 }
