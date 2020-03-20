@@ -6,22 +6,20 @@ import org.gamecontrolplus.gui.*;
 
 
 public class Robot_Controls {   
-<<<<<<< Updated upstream
   float x;
   float y;
-    public void useController() {
+  
+    /*public void useController() {
       x = device.getSlider("LHorizontal").getValue();
       y = device.getSlider("LVertical1").getValue();
       System.out.println(device.getButton("ButtonA").getValue());
-      System.out.println(device.getHat("Hat").getValue());
-=======
+      System.out.println(device.getHat("Hat").getValue());*/
   
     public float getLX(){
       return device.getSlider("LHorizontal").getValue();
     }
     public float getLY(){
       return device.getSlider("LVertical1").getValue();
->>>>>>> Stashed changes
     }
   
 }  

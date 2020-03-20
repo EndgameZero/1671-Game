@@ -18,12 +18,8 @@ void setup() {
 
 void draw() {
   env.drawEnvironment();
-<<<<<<< Updated upstream
-  
-  controls.useController();
-=======
+
   Robot_Controls controls = new Robot_Controls();
   LX = controls.getLX();
   LY = controls.getLY();
->>>>>>> Stashed changes
 }
