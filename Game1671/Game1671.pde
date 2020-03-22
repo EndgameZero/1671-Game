@@ -34,7 +34,7 @@ void draw() {
   }
   
   rect(px, py, 45, 45);
-  rect(env.putPointOnRightAutoLine(new PVector(900, 800), 3).x, env.putPointOnRightAutoLine(new PVector(900, 800), 3).y, 30, 30);
+  //rect(env.putPointOnRightAutoLine(new PVector(900, 800), 3).x, env.putPointOnRightAutoLine(new PVector(900, 800), 3).y, 30, 30);
   
   px+= LX * 4;
   py+= LY * 4;

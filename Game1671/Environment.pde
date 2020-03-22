@@ -94,6 +94,24 @@ public class Environment {
     line(fieldVertices[1].x + 17*feet, fieldVertices[3].y - 4.5*feet, fieldVertices[6].x - 17*feet, fieldVertices[3].y - 4.5*feet);
     line(fieldVertices[6].x - 17*feet, fieldVertices[3].y - 4.5*feet, fieldVertices[6].x - 17*feet, fieldVertices[3].y);
     
+    stroke(0, 0, 0);
+    line(fieldVertices[5].x - 31*feet, fieldVertices[3].y - 4.5*feet, fieldVertices[5].x - 31*feet, fieldVertices[3].y);
+    line(fieldVertices[5].x - 31*feet, fieldVertices[3].y - 4.5*feet, fieldVertices[5].x - 31*feet + 3*feet, fieldVertices[3].y - 4.5*feet);
+    line(fieldVertices[5].x - 31*feet + 3*feet, fieldVertices[3].y - 4.5*feet, fieldVertices[5].x - 31*feet + 3*feet, fieldVertices[3].y);
+    
+    line(fieldVertices[1].x + 31*feet, fieldVertices[7].y + 4.5*feet, fieldVertices[1].x + 31*feet, fieldVertices[7].y);
+    line(fieldVertices[1].x + 31*feet, fieldVertices[7].y + 4.5*feet, fieldVertices[1].x + 31*feet - 3*feet, fieldVertices[7].y + 4.5*feet);
+    line(fieldVertices[1].x + 31*feet - 3*feet, fieldVertices[7].y + 4.5*feet, fieldVertices[1].x + 31*feet - 3*feet, fieldVertices[7].y);
+    
+    //goals
+    stroke(255, 0, 0);
+    line(fieldVertices[1].x, fieldVertices[1].y, fieldVertices[1].x, fieldVertices[1].y + 4*feet);
+    stroke(0, 0, 255);
+    line(fieldVertices[5].x, fieldVertices[5].y, fieldVertices[5].x, fieldVertices[5].y - 4*feet);
+    stroke(0, 255, 0);
+    line(fieldVertices[2].x, fieldVertices[2].y, fieldVertices[2].x, fieldVertices[2].y - 5*feet);
+    line(fieldVertices[6].x, fieldVertices[6].y, fieldVertices[6].x, fieldVertices[6].y + 5*feet);
+    
     //reset color
     stroke(0,0,0);
     strokeWeight(1);
