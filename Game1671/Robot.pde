@@ -22,51 +22,51 @@ public class Robot{
   }
   
   //function for moving Right
-  public void MoveR(){
-      StartX = StartX + 20;
+  public void MoveR(float X){
+      StartX = StartX + X;
   }
   
     //function for moving Down
-  public void MoveD(){
-      StartY = StartY + 20;
+  public void MoveD(float Y){
+      StartY = StartY + Y;
   }
   //function for moving Up
-  public void MoveU(){
-      StartY = StartY - 20;
+  public void MoveU(float Y){
+      StartY = StartY - Y;
   }
   
   //function for moving Left
-  public void MoveL(){
-      StartX = StartX - 20;
+  public void MoveL(float X){
+      StartX = StartX - X;
   }
   
   //function for moving diagonally left
-  public void MoveDiagL(){
-      StartY = StartY - 20;
-      StartX = StartX - 20;
+  public void MoveDiagL(float X, float Y){
+      StartY = StartY - Y;
+      StartX = StartX - X;
   }
  
   //function for moving diagonally Left Top
-  public void MoveDiagLtop(){
-      StartY = StartY - 20;
-      StartX = StartX - 20;
+  public void MoveDiagLtop(float X, float Y){
+      StartY = StartY - Y;
+      StartX = StartX - X;
   }
    //function for moving diagonally Right Top
-  public void MoveDiagRtop(){
-      StartY = StartY - 20;
-      StartX = StartX + 20;     
+  public void MoveDiagRtop(float X, float Y){
+      StartY = StartY - Y;
+      StartX = StartX + X;     
     }
     
   //function for moving diagonally Left Below
-  public void MoveDiagLbelow(){
-      StartY = StartY + 20;
-      StartX = StartX - 20;  
+  public void MoveDiagLbelow(float X, float Y){
+      StartY = StartY + Y;
+      StartX = StartX - X;  
    
   }
   
   //function for moving diagonally Right Below
-  public void MoveDiagRbelow(){
-      StartY = StartY + 20;
-      StartX = StartX + 20;
+  public void MoveDiagRbelow(float X, float Y){
+      StartY = StartY + Y;
+      StartX = StartX + X;
   }
 }
