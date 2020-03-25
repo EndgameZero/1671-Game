@@ -11,34 +11,55 @@ ControlDevice device;
 float LX;
 float LY;
 
-float px;
-float py;
+float px = 500;
+float py = 500;
+
+float robotH = 90;
+float robotW = 90;
+
 
 void setup() {
-  size(1920, 1080);
+  size(1280, 720);
   control = ControlIO.getInstance(this);
   device = control.getMatchedDevice("controllerConfig");
   env.setupEnvironment();
-  
-  px = 500;
-  py = 500;
 }
 
 void draw() {
   
   background(#DDDDDD);
   env.drawEnvironment();
-  if(!env.isInField(px, py)){
-    background(255, 0,0);
-    env.drawField();
-  }
+  //if(!env.isInField(px, py)){
+  //  background(255, 0,0);
+  //  env.drawField();
+    
+  //  LX*=-1;
+  //  LY*=-1;
+  //}
+  float position[] = env.keepInBounds(px, py, robotW, robotH);
   
-  rect(px, py, 45, 45);
-  //rect(env.putPointOnRightAutoLine(new PVector(900, 800), 3).x, env.putPointOnRightAutoLine(new PVector(900, 800), 3).y, 30, 30);
+  rect(position[0] - 45, position[1] - 45, robotH, robotW);
   
-  px+= LX * 4;
-  py+= LY * 4;
+  //if(py + robotH/2 > env.fieldVertices[3].y){
+  //  py = env.fieldVertices[3].y - robotH/2;
+  //}
   
+  //if(py - robotH/2 < env.fieldVertices[0].y){
+  //  py = env.fieldVertices[0].y + robotH/2;
+  //}
+  
+  //if(px - robotW/2 < env.fieldVertices[1].x){
+  //  px = env.fieldVertices[1].x + robotW/2;
+  //}
+  
+  //if(px + robotW/2 > env.fieldVertices[6].x){
+  //  px = env.fieldVertices[6].x - robotW/2;
+  //}
+  
+  
+    
+  px+= LX * 10;
+  py+= LY * 10;
   
   LX = controls.getLX();
   LY = controls.getLY();

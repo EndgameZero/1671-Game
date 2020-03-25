@@ -1,8 +1,8 @@
 
 public class Environment {  
   
-  private float feet = 30.0;//px/ft
-  private float offset = 50;//px
+  private float feet = 20.0;//px/ft
+  private float offset = 40;//px
   
   private PVector[] fieldVertices;
   private Timer timer = new Timer();
@@ -27,10 +27,35 @@ public class Environment {
   public void drawEnvironment(){
     drawField();
     textSize(32);
-    text(timer.getHours() + ":" + timer.getMinutes() + ":" + timer.getSeconds(), fieldVertices[7].x + 100, fieldVertices[7].y + 20);
+    text("0" + timer.getHours() + ":" + "0"+timer.getMinutes() + ":" + "0"+timer.getSeconds(), fieldVertices[7].x + 100, fieldVertices[7].y + 20);
     fill(0,0,0);
   }
  
+ 
+ 
+ 
+  public float[] keepInBounds(float px, float py, float robotW, float robotH){
+    if(py + robotH/2 > env.fieldVertices[3].y){
+    py = env.fieldVertices[3].y - robotH/2;
+    }
+  
+    if(py - robotH/2 < env.fieldVertices[0].y){
+      py = env.fieldVertices[0].y + robotH/2;
+    }
+  
+    if(px - robotW/2 < env.fieldVertices[1].x){
+      px = env.fieldVertices[1].x + robotW/2;
+    }
+  
+    if(px + robotW/2 > env.fieldVertices[6].x){
+      px = env.fieldVertices[6].x - robotW/2;
+    }
+    
+    float[] position = new float[2];
+    position[0] = px;
+    position[1] = py;
+    return position;
+  }
  
  
  public boolean isInField(float x, float y){
@@ -94,6 +119,7 @@ public class Environment {
     line(fieldVertices[1].x + 17*feet, fieldVertices[3].y - 4.5*feet, fieldVertices[6].x - 17*feet, fieldVertices[3].y - 4.5*feet);
     line(fieldVertices[6].x - 17*feet, fieldVertices[3].y - 4.5*feet, fieldVertices[6].x - 17*feet, fieldVertices[3].y);
     
+    //wheel of fortune
     stroke(0, 0, 0);
     line(fieldVertices[5].x - 31*feet, fieldVertices[3].y - 4.5*feet, fieldVertices[5].x - 31*feet, fieldVertices[3].y);
     line(fieldVertices[5].x - 31*feet, fieldVertices[3].y - 4.5*feet, fieldVertices[5].x - 31*feet + 3*feet, fieldVertices[3].y - 4.5*feet);
