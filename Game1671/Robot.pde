@@ -1,25 +1,39 @@
-// File to code for the Robot
-//move
-//shoot
-//intake
+//R O B O T  F I L E -  C O D I N G  M O V E M E N T / I N T A K E / S H O O T I N G
+
+//waiting on everything on robot controls, environment, and even physics to get done before we proceed with intake and shooting. Also, we are waiting on movement implementation.
 public class Robot{
+  // V A R I A B L E S -----------------------------------
   float StartX = 100;
   float StartY = 100;
- 
+  
+  // C O N S T U C T O R ----------------------------------
   public Robot (){
     }
-    
+  
+  // F I L E S  M A I N  M E T H O D ------------------------------
   public void drawRobot() {
     fill(200,0,210);
     background(0);
     rect(StartX, StartY,200,200);
   }
   
-  public void intake(){
+  // I N T A K E  M E T H O D --------------------------------------------------
+  public void robotIntake(){
   }
   
-  public void shoot(){
+  
+  // S H O O T  M E T H O D ----------------------------------------------------
+  public void robotShoot(){
   }
+  
+  
+  //M O V E M E N T  M E T H O D ---------------------------------------------------------
+  public void robotMovement(){
+   
+  
+
+  }
+  
   
   //function for moving Right
   public void MoveR(float X){
